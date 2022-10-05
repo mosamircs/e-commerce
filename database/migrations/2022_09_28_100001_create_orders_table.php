@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->float('amount');
+            $table->string('shipping_name');
+            $table->text('shipping_address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('country');
+            $table->float('tax');
+            $table->string('email');
+            $table->tinyInteger('shipped');
+            $table->string('tracking_number');
+            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
